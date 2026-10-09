@@ -15,6 +15,26 @@ if ($action === 'set_workout')
     echo $conn->lastInsertId();
 }
 
+if ($action === 'create_username') 
+{
+    $stmt = $conn->prepare("INSERT INTO users (username) VALUES (:username)");
+    $stmt->execute([':username' => $data['username']]);
+    echo $conn->lastInsertId();
+}
+
+if ($action === 'create_passowrd')
+{
+    $stmt = $conn->prepare("INSERT INTO users (password_hash) VALUES (:password_hash)");
+    $stmt->execute([':password_hash' => $data['password_hash']]);
+    echo $conn->lastInsertId();
+}
+
+
+
+
+
+
+
 if ($action === 'get_workouts') 
 {
     $stmt = $conn->prepare("SELECT * FROM workouts");

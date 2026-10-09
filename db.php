@@ -1,6 +1,6 @@
 <?php
 $host = "localhost";
-$dbname = "Workouts";
+$dbname = "helpDesk";
 $username = "root";
 $password = "";
 $conn = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
