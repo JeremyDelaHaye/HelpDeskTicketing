@@ -6,6 +6,8 @@ require_once 'db.php';
 $data = json_decode(file_get_contents('php://input'), true);
 $action = $data['action'];
 
+
+//code to refactor 
 if ($action === 'set_workout') 
 {
     $stmt = $conn->prepare("INSERT INTO workouts (name) VALUES (:name)");
