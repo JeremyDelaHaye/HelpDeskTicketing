@@ -42,7 +42,3 @@ function createWorkout()
         });
     } 
 }
-
-
-
-
