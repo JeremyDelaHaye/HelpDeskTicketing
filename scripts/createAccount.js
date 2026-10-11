@@ -1,14 +1,15 @@
+
+//creating account. 
 document.getElementById('submitBtn').addEventListener('click',async () =>
 {
-    const username = document.getElementById('username').value;
-    const password = document.getElementById('password').value;
-    const email = document.getElementById('email').value;
+    const username = document.getElementById('createdUsername').value;
+    const password = document.getElementById('createdPassword').value;
+    const email = document.getElementById('createdEmail').value;
     const isTechnician = document.getElementById('isTechnician').checked
     
     //validate(username, "username")
     //validate(password, "password")
     //validate(email, "email")
-
 
     console.log(username)
 

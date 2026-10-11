@@ -14,10 +14,14 @@ if ($action === 'create_user')
     ([
         ':username'      => $data['username'], // place to put it => item from $data 
         ':email'         => $data['email'],
-        ':password_hash' => $data['password_hash'],
+        ':password_hash' => password_hash($data['password_hash'],PASSWORD_DEFAULT), //if(password_verify($inputPassword,$password_hash))
         ':is_technician' => (int) $data['is_technician']
     ]);
     echo $conn->lastInsertId();
 }
+
+
+
+
 
 

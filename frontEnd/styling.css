@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #6a85f1, #b06ab3); /* glass needs something colourful behind it */
+}
+
+main {
+    min-height: 80vh;              /* leaves room for your header and footer */
+    display: flex;
+    justify-content: center;       /* horizontal centre */
+    align-items: center;           /* vertical centre */
+}
+
+#loginOrCreate,
+#createAccount,
+#login {
+    display: flex;
+    flex-direction: column;        /* stack the inputs and buttons */
+    gap: 12px;
+    width: min(360px, 90vw);       /* a box 360px wide, shrinking on small screens */
+    padding: 24px;
+    box-sizing: border-box;
+}
+.side-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/*smooth transitions*/
+input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+textarea,
+select 
+{
+    transition: transform 0.2s ease;
+}
+
+@media (hover: hover) {
+    button.p-button:hover,
+    input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):hover,
+    textarea:hover,
+    select:hover {
+        transform: scale(1.035);
+    }
+}
+
+
+.hidden {
+    display: none !important;      /* must beat the display: flex above */
+}
