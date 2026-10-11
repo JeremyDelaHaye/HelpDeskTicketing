@@ -2,16 +2,14 @@
 //creating account. 
 document.getElementById('submitBtn').addEventListener('click',async () =>
 {
-    const username = document.getElementById('createdUsername').value;
-    const password = document.getElementById('createdPassword').value;
-    const email = document.getElementById('createdEmail').value;
-    const isTechnician = document.getElementById('isTechnician').checked
+    let username = document.getElementById('createdUsername').value;
+    let password = document.getElementById('createdPassword').value;
+    let email = document.getElementById('createdEmail').value;
+    let isTechnician = document.getElementById('isTechnician').checked
     
     //validate(username, "username")
     //validate(password, "password")
     //validate(email, "email")
-
-    console.log(username)
 
     const response = await fetch('../db/api.php', //sends request to api.php
     {

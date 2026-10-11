@@ -4,7 +4,7 @@ require_once 'db.php'; //loads db connection file
 
 $data = json_decode(file_get_contents('php://input'), true); // gets stuff from json.stringify and makes it into php array stores in $data
 
-// gets the action from $data array adn stores it into $action  
+// gets the action from $data array amdn stores it into $action  
 $action = $data['action'];
 
 if ($action === 'create_user')
@@ -20,6 +20,22 @@ if ($action === 'create_user')
     echo $conn->lastInsertId();
 }
 
+if ($action === 'login')
+{
+    $stmt = $conn->prepare("SELECT id, username, password_hash, istechnician FROM users WHERE username = username:")
+    $stmt = $conn->execute([':username' => $data['username']]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($user === false)
+    {
+        echo('no username found ')
+    }
+    else 
+    {
+        echo($user)
+    }
+
+
+}
 
 
 
