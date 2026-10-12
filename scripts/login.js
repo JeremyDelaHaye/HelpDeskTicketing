@@ -16,11 +16,14 @@ document.getElementById('loginSubmitBtn').addEventListener('click',async () =>
         })
     });
     
-    switch(response)
+    const text = await response.text();
+    const result = Number(text);
+   
+    switch(result)
     {
         case 1: alert('Invalid Username')
         break;
-        case 2: // login
+        case 2: window.location.href = 'ticketCreate.html';
         break;
         case 3: alert('Invalid Password')
         break;

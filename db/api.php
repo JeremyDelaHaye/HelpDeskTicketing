@@ -26,18 +26,18 @@ if ($action === 'login')
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($user === false)
     {
-        echo(1);
+        echo 1;
     }
-    
+
     else 
     {
         if(password_verify($data['password'],$user['password_hash']))
         {
-            echo(2);
+            echo 2;
         }
         else
         {
-            echo(3);
+            echo 3;
         }     
     }
 }
