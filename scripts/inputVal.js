@@ -1,4 +1,4 @@
-function validate(input,inputName)
+function validate(input,inputName,)
 {
    
     if (input === null || input === '')

@@ -2,7 +2,6 @@
 
 document.getElementById('loginSubmitBtn').addEventListener('click',async () =>
 {
-    console.log('loginpress')
     let inputUsername = document.getElementById('loginUsername').value
     let inputPassword = document.getElementById('loginPassword').value
 
@@ -16,7 +15,14 @@ document.getElementById('loginSubmitBtn').addEventListener('click',async () =>
             password: inputPassword
         })
     });
-
-
-
+    
+    switch(response)
+    {
+        case 1: alert('Invalid Username')
+        break;
+        case 2: // login
+        break;
+        case 3: alert('Invalid Password')
+        break;
+    }
 });

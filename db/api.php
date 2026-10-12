@@ -1,5 +1,4 @@
 <?php
-
 require_once 'db.php'; //loads db connection file 
 
 $data = json_decode(file_get_contents('php://input'), true); // gets stuff from json.stringify and makes it into php array stores in $data
@@ -22,22 +21,23 @@ if ($action === 'create_user')
 
 if ($action === 'login')
 {
-    $stmt = $conn->prepare("SELECT id, username, password_hash, istechnician FROM users WHERE username = username:")
-    $stmt = $conn->execute([':username' => $data['username']]);
+    $stmt = $conn->prepare("SELECT id, username, password_hash, is_technician FROM users WHERE username = :username");
+    $stmt->execute([':username' => $data['username']]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($user === false)
     {
-        echo('no username found ')
+        echo(1);
     }
+    
     else 
     {
-        echo($user)
+        if(password_verify($data['password'],$user['password_hash']))
+        {
+            echo(2);
+        }
+        else
+        {
+            echo(3);
+        }     
     }
-
-
 }
-
-
-
-
-
