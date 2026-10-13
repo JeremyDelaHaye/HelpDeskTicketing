@@ -16,16 +16,14 @@ document.getElementById('loginSubmitBtn').addEventListener('click',async () =>
         })
     });
     
-    const text = await response.text();
-    const result = Number(text);
-   
-    switch(result)
+    const result = await response.json();
+
+    switch (result.status)
     {
-        case 1: alert('Invalid Username')
-        break;
-        case 2: window.location.href = 'ticketCreate.html';
-        break;
-        case 3: alert('Invalid Password')
-        break;
+        case 1: alert('Invalid Username'); break;
+        case 2:     
+            localStorage.setItem('userId', result.user_id);
+            window.location.href = 'ticketCreate.html'; break;
+        case 3: alert('Invalid Password'); break;
     }
 });
