@@ -41,3 +41,24 @@ if ($action === 'login')
         }     
     }
 }
+
+if ($action === 'createTicket')
+{
+    $stmt = $conn->prepare("INSERT INTO tickets (priority, user_id, description, title) VALUES (:priority, :user_id, :description, :title)");
+    $stmt ->execute
+    ([
+        ':priority'      => $data['priority'], // place to put it => item from $data 
+        ':user_id'         => $data['user_id'],
+        ':description' => $data['description'], 
+        ':title' => $data['title']
+    ]);
+    echo $conn->lastInsertId();
+}
+
+if ($action === 'getUserID')
+{
+    $stmt = $conn->prepare("SELECT id FROM users WHERE username = :username");
+    $stmt->execute([':username' => $data['username']]);
+    $id = $stmt->fetch(PDO::FETCH_COLUMN);
+    echo $user['id']
+}
