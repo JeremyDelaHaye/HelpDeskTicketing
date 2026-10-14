@@ -32,7 +32,7 @@ if ($action === 'login')
     {
         if(password_verify($data['password'],$user['password_hash']))
         {
-            echo json_encode(['status' => 2, 'user_id' => $user['id']]);
+            echo json_encode(['status' => 2, 'userId' => $user['id'],'isTechnician' => $user['is_technician']]);
         }
         else
         {
@@ -52,4 +52,12 @@ if ($action === 'createTicket')
         ':title' => $data['title']
     ]);
     echo $conn->lastInsertId();
+}
+
+if ($action === 'getTickets')
+{
+    $stmt = $conn->prepare("SELECT * FROM tickets WHERE status != 1");
+    $stmt->execute();
+    $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    echo json_encode($tickets); 
 }

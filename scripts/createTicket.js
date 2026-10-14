@@ -20,4 +20,3 @@ document.getElementById('submitTicket').addEventListener('click',async () =>
     const text = await response.text();
     console.log(text);
 });
-

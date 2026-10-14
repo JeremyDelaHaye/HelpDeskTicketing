@@ -1,5 +1,3 @@
-//button hiding 
-
 const div1 = document.getElementById('loginOrCreate');
 const div2 = document.getElementById('createAccount');
 const div3 = document.getElementById('login');

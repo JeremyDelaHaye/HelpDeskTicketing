@@ -1,5 +1,3 @@
-
-//creating account. 
 document.getElementById('submitBtn').addEventListener('click',async () =>
 {
     let username = document.getElementById('createdUsername').value;
@@ -7,10 +5,6 @@ document.getElementById('submitBtn').addEventListener('click',async () =>
     let email = document.getElementById('createdEmail').value;
     let isTechnician = document.getElementById('isTechnician').checked
     
-    //validate(username, "username")
-    //validate(password, "password")
-    //validate(email, "email")
-
     const response = await fetch('../db/api.php', //sends request to api.php
     {
         method: 'POST', // defines method needed 
@@ -21,7 +15,17 @@ document.getElementById('submitBtn').addEventListener('click',async () =>
         password_hash: password, 
         email: email,
         is_technician: isTechnician})
-    });     
-
+    });  
+       
     const result = await response.text();
+    localStorage.setItem('userId', result.userID);
+    if (isTechnician)
+    {
+        window.location.href = 'ticketAnswer.html'; 
+    }
+    else
+    {
+        window.location.href = 'ticketCreate.html';
+    }
+
 });

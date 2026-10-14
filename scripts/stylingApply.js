@@ -1,9 +1,4 @@
-// ui.js: applies Puppertino classes (glass tier 1, CSS-only) to the page
-
-// Elements that should become glass panels (add your own selectors)
-
 const GLASS_PANELS = ['#loginOrCreate', '#createAccount', '#login','#createTicket'];
-
 function applyUI(root = document) 
 {
     // Page-wide: type scale and automatic dark mode
@@ -47,5 +42,4 @@ function applyUI(root = document)
         label.appendChild(document.createElement('span'));
     });
 }
-
 document.addEventListener('DOMContentLoaded', () => applyUI());

@@ -1,5 +1,3 @@
-// when pulling from database to compare take is engineer val. 
-
 document.getElementById('loginSubmitBtn').addEventListener('click',async () =>
 {
     let inputUsername = document.getElementById('loginUsername').value
@@ -22,8 +20,16 @@ document.getElementById('loginSubmitBtn').addEventListener('click',async () =>
     {
         case 1: alert('Invalid Username'); break;
         case 2:     
-            localStorage.setItem('userId', result.user_id);
-            window.location.href = 'ticketCreate.html'; break;
+            localStorage.setItem('userId', result.userId);
+            if (result.isTechnician === '1')
+            {
+                window.location.href = 'ticketAnswer.html'; 
+            }
+            else
+            {
+                window.location.href = 'ticketCreate.html'; 
+            }
+            break;
         case 3: alert('Invalid Password'); break;
     }
 });
