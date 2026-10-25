@@ -1,4 +1,4 @@
-document.getElementById('test').addEventListener('click',async () =>
+document.addEventListener('DOMContentLoaded', async function()
 {
     const response = await fetch('../db/api.php', //sends request to api.php
     {
@@ -6,6 +6,28 @@ document.getElementById('test').addEventListener('click',async () =>
         headers: {'Content-Type' : 'application/json'},
         body : JSON.stringify({action: 'getTickets'})
     });
-    const text = await response.text();
-    console.log(text);  
+    const tickets = await response.json();
+
+    tickets[0]              // first ticket (object)
+    tickets[0].title        // "test1"
+    tickets[1].user_id      // 18
+    tickets.length 
+
+    const ticketHolder = document.getElementById('ticketHolder');
+    for(let i; i < tickets.length; i ++)
+    {
+        //creates ticket div 
+        const ticket = document.createElement('div');
+
+        const title = document.createElement('p');
+        title.textContent = tickets[i].title;
+        ticket.appendChild(title);
+
+        const description = document.createElement('p')
+        description.textContent = tickets[i].description
+        ticket.appendChild(description)
+
+        //adds ticket div to holder div 
+        ticketHolder.appendChild(ticket);
+    }
 });
