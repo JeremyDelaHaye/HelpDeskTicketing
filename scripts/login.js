@@ -21,7 +21,9 @@ document.getElementById('loginSubmitBtn').addEventListener('click',async () =>
         case 1: alert('Invalid Username'); break;
         case 2:     
             localStorage.setItem('userId', result.userId);
-            if (result.isTechnician === '1')
+
+            console.log(result.isTechnician)
+            if (result.isTechnician === 1)
             {
                 window.location.href = 'ticketAnswer.html'; 
             }

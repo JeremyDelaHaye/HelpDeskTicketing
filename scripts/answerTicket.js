@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', async function()
 {
+
+    console.log('loaded')
     const response = await fetch('../db/api.php', //sends request to api.php
     {
         method: 'POST',
@@ -26,6 +28,8 @@ document.addEventListener('DOMContentLoaded', async function()
         const description = document.createElement('p')
         description.textContent = tickets[i].description
         ticket.appendChild(description)
+
+        console.log(ticket)
 
         //adds ticket div to holder div 
         ticketHolder.appendChild(ticket);
