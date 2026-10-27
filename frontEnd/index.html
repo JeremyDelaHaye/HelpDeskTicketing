@@ -7,41 +7,38 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@codedgar/puppertino@2.0.0/dist/css/puppertino.min.css">
     <link rel="stylesheet" href="styling.css">
 </head>
-
 <body>
     <main>
-        <div id = loginOrCreatePage>
-            <div id="loginOrCreate">
-                <button id="loginBtn">Login</button>
-                <button id="createBtn">Create Account</button>
-            </div>
-             
-            <div id="createAccount" class="hidden">
-                <input type="text" id="createdUsername" placeholder = "Username">
-                <input type="text" id="createdPassword" placeholder = "Password">
-                <input type="text" id="createdEmail" placeholder = "Email">
-                <label class="side-label">
-                    <input type="checkbox" id="isTechnician">
-                    <span class="p-label">Are you a technician?</span>
-                </label>
-                <button id="submitBtn">Submit</button>
-                <button id = "createBackBtn">back</button>
-            </div>
-
-            <div id="login" class="hidden">
-                <input type="text" id="loginUsername" placeholder="Username">
-                <input type="text" id="loginPassword" placeholder = "Password">
-                <button id="loginSubmitBtn">Login</button>
-                <button id = "loginBackBtn">back</button>
-            </div>
+        <div id="loginOrCreate" class="panel">
+            <button id="loginBtn">Login</button>
+            <button id="createBtn">Create Account</button>
         </div>
 
+        <div id="createAccount" class="panel hidden">
+            <input type="text" id="createdUsername" placeholder="Username">
+            <input type="password" id="createdPassword" placeholder="Password">
+            <input type="email" id="createdEmail" placeholder="Email">
+            <label class="side-label">
+                <input type="checkbox" id="isTechnician">
+                <span class="p-label">Are you a technician?</span>
+            </label>
+            <button id="submitBtn">Submit</button>
+            <button id="createBackBtn">Back</button>
+        </div>
+
+        <div id="login" class="panel hidden">
+            <input type="text" id="loginUsername" placeholder="Username">
+            <input type="password" id="loginPassword" placeholder="Password">
+            <button id="loginSubmitBtn">Login</button>
+            <button id="loginBackBtn">Back</button>
+        </div>
     </main>
-<special-footer></special-footer>
-<script src="../scripts/stylingApply.js"></script>
- <script src="../scripts/createAccount.js"></script> 
-<script src="../scripts/login.js"></script> 
-<script src="../scripts/Index.js"></script>
-<script src="../scripts/inputVal.js"></script> 
+
+    <special-footer></special-footer>
+    <script src="../scripts/stylingApply.js"></script>
+    <script src="../scripts/createAccount.js"></script>
+    <script src="../scripts/login.js"></script>
+    <script src="../scripts/Index.js"></script>
+    <script src="../scripts/inputVal.js"></script>
 </body>
 </html>

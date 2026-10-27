@@ -5,9 +5,7 @@ function applyUI(root = document)
     document.body.classList.add('p-type', 'p-auto-dark-mode');
 
     // Panels -> glass cards
-    GLASS_PANELS.forEach(selector => {
-        root.querySelectorAll(selector).forEach(el => el.classList.add('p-glass-md'));
-    });
+    root.querySelectorAll('.panel').forEach(el => el.classList.add('p-glass-md'));
 
     // Buttons -> glass buttons; submit buttons get the prominent (accent) style
     root.querySelectorAll('button').forEach(btn => {

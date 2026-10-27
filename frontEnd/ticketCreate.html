@@ -7,21 +7,20 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@codedgar/puppertino@2.0.0/dist/css/puppertino.min.css">
     <link rel="stylesheet" href="styling.css">
 </head>
-
 <body>
     <main>
-        <div id = createTicket>
-            <input type = "text" id="ticketTitle" placeholder = "Ticket title">
-            <input type = "text" id="ticketDescription" placeholder = "Description">
-            
+        <div id="createTicket" class="panel">
+            <input type="text" id="ticketTitle" placeholder="Ticket title">
+            <input type="text" id="ticketDescription" placeholder="Description">
             <select id="priority">
-                <option value=1>Low</option>
-                <option value=2>Medium</option>
-                <option value=3>High</option>
+                <option value="1">Low</option>
+                <option value="2">Medium</option>
+                <option value="3">High</option>
             </select>
-            <button id = "submitTicket">Submit Ticket</button>
+            <button id="submitTicket">Submit Ticket</button>
         </div>
     </main>
-<script src="../scripts/stylingApply.js"></script>
-<script src="../scripts/createTicket.js"></script>
+    <script src="../scripts/stylingApply.js"></script>
+    <script src="../scripts/createTicket.js"></script>
 </body>
+</html>
