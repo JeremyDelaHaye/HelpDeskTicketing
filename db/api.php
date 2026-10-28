@@ -57,7 +57,7 @@ if ($action === 'createTicket')
 
 if ($action === 'getTickets')
 {
-    $stmt = $conn->prepare("SELECT * FROM tickets WHERE status != 1");
+    $stmt = $conn->prepare("SELECT * FROM tickets WHERE status != 1 ORDER BY priority DESC");
     $stmt->execute();
     $tickets = $stmt->fetchAll(PDO::FETCH_ASSOC);
     echo json_encode($tickets); 

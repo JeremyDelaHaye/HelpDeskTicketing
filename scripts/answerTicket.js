@@ -1,17 +1,50 @@
+let tickets = [];
+let displayIndex = 0;
+const PAGE_SIZE = 4;
+
 document.addEventListener('DOMContentLoaded', async function()
 {
-    const response = await fetch('../db/api.php', //sends request to api.php
+    const response = await fetch('../db/api.php',
     {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
         body : JSON.stringify({action: 'getTickets'})
     });
-    const tickets = await response.json();
+    tickets = await response.json();   // assigns the top-level variable
+    refreshTickets();
+});
 
-    tickets[0]              // first ticket (object)
-    tickets[0].title        // "test1"
-    tickets[1].user_id      // 18
+document.getElementById('prevBtn').addEventListener('click', () =>
+{
+    if (displayIndex > 0)
+    {
+        displayIndex--;
+        refreshTickets();
+    }
+});
 
+document.getElementById('nextBtn').addEventListener('click', () =>
+{
+    if (displayIndex + PAGE_SIZE < tickets.length)
+    {
+        displayIndex++;
+        refreshTickets();
+    }
+});
+
+function refreshTickets()
+{
+    document.getElementById('ticketHolder').innerHTML = '';
+    let ticketsDisplay = [];
+    for (let i = displayIndex; i < displayIndex + 4 && i < tickets.length; i++)
+    {
+        ticketsDisplay.push(tickets[i]);
+    }
+    displayTickets(ticketsDisplay);
+}
+
+function displayTickets(tickets)
+{
     const ticketHolder = document.getElementById('ticketHolder');
     for(let i = 0; i < tickets.length; i ++)
     {
@@ -27,14 +60,18 @@ document.addEventListener('DOMContentLoaded', async function()
 
         //priority
         const priority = document.createElement('p')
+        console.log(tickets[i].priority)
         switch(tickets[i].priority)
         {
             case 1:
-                priority.textContent = 'High'
+                priority.textContent = 'Priority: Low';
+            break;
             case 2:
-                priority.textContent = 'Medium'
+                priority.textContent = 'Priority: Medium';
+            break;
             case 3:
-                priority.textContent = 'Low'
+                priority.textContent = 'Priority: High';
+            break;
         }
         ticket.appendChild(priority)
 
@@ -47,10 +84,7 @@ document.addEventListener('DOMContentLoaded', async function()
         description.textContent = tickets[i].description
         ticket.appendChild(description)
 
-
-        console.log(ticket)
-
         //adds ticket div to holder div 
         ticketHolder.appendChild(ticket);
     }
-});
+};
