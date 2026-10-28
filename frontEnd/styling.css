@@ -49,10 +49,56 @@ main {
     margin-bottom: var(--gap);
 }
 
-#ticketHolder {
+#ticketHolder 
+{
     display: flex;
     flex-direction: column;
     gap: var(--gap);
+}
+
+.titleNum
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.titleNum h1
+{
+    margin: 0;
+}
+
+.titleNum span
+{
+    margin-left: var(--gap);
+    line-height: 1.2;
+    white-space: nowrap;
+}
+
+.ticketArea
+{
+    display: flex;
+    gap: var(--gap);
+    align-items: stretch;
+}
+
+#ticketHolder
+{
+    flex: 1;
+}
+
+.navCol
+{
+    display: flex;
+    flex-direction: column;
+    gap: var(--gap);
+    width: 56px;
+}
+
+.navCol button
+{
+    flex: 1;
+    font-size: 1.5rem;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),

@@ -56,7 +56,18 @@ function displayTickets(tickets)
         //title
         const title = document.createElement('h1');
         title.textContent = tickets[i].title;
-        ticket.appendChild(title);
+
+        const titleNum = document.createElement('div');
+        titleNum.className = 'titleNum';
+
+        const num = document.createElement('span');
+        num.textContent = '#' + (displayIndex + i + 1);
+
+        
+        titleNum.appendChild(title);
+        titleNum.appendChild(num);
+
+        ticket.appendChild(titleNum);   // replaces ticket.appendChild(title)
 
         //priority
         const priority = document.createElement('p')
