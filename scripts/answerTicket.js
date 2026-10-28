@@ -1,7 +1,5 @@
 document.addEventListener('DOMContentLoaded', async function()
 {
-
-    console.log('loaded')
     const response = await fetch('../db/api.php', //sends request to api.php
     {
         method: 'POST',
@@ -13,21 +11,42 @@ document.addEventListener('DOMContentLoaded', async function()
     tickets[0]              // first ticket (object)
     tickets[0].title        // "test1"
     tickets[1].user_id      // 18
-    tickets.length 
 
     const ticketHolder = document.getElementById('ticketHolder');
-    for(let i; i < tickets.length; i ++)
+    for(let i = 0; i < tickets.length; i ++)
     {
         //creates ticket div 
         const ticket = document.createElement('div');
 
-        const title = document.createElement('p');
+        ticket.className = 'ticket'
+
+        //title
+        const title = document.createElement('h1');
         title.textContent = tickets[i].title;
         ticket.appendChild(title);
 
+        //priority
+        const priority = document.createElement('p')
+        switch(tickets[i].priority)
+        {
+            case 1:
+                priority.textContent = 'High'
+            case 2:
+                priority.textContent = 'Medium'
+            case 3:
+                priority.textContent = 'Low'
+        }
+        ticket.appendChild(priority)
+
+        const createdAt = document.createElement('p')
+        createdAt.textContent = tickets[i].created_at
+        ticket.appendChild(createdAt)
+
+        //description
         const description = document.createElement('p')
         description.textContent = tickets[i].description
         ticket.appendChild(description)
+
 
         console.log(ticket)
 

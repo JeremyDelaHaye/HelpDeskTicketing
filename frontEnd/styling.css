@@ -2,7 +2,7 @@
     --panel-width: min(360px, 90vw);
     --gap: 12px;
     --pad: 24px;
-    --bg: linear-gradient(135deg, #6a85f1, #b06ab3);
+    --bg: linear-gradient(135deg, #6a93f1, #b06ab3);
 }
 
 body {
@@ -30,6 +30,7 @@ main {
 .row {
     display: flex;
     flex-direction: row;
+    align-items: center;
     gap: var(--gap);
 }
 
@@ -38,6 +39,17 @@ main {
     align-items: center;
     gap: 8px;
     cursor: pointer;
+}
+
+.ticket
+{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: var(--gap);
+    padding: var(--gap);
+    max-width: var(--content-width);
+    margin: 0 auto;
+    align-items: start;
 }
 
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
