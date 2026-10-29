@@ -1,4 +1,5 @@
 let tickets = [];
+let ticketsDisplay = [];
 let displayIndex = 0;
 const PAGE_SIZE = 4;
 
@@ -35,12 +36,12 @@ document.getElementById('nextBtn').addEventListener('click', () =>
 function refreshTickets()
 {
     document.getElementById('ticketHolder').innerHTML = '';
-    let ticketsDisplay = [];
     for (let i = displayIndex; i < displayIndex + 4 && i < tickets.length; i++)
     {
         ticketsDisplay.push(tickets[i]);
     }
     displayTickets(ticketsDisplay);
+    console.log()
 }
 
 function displayTickets(tickets)
@@ -49,9 +50,10 @@ function displayTickets(tickets)
     for(let i = 0; i < tickets.length; i ++)
     {
         //creates ticket div 
-        const ticket = document.createElement('div');
+        const ticket = document.createElement('div');   
 
         ticket.className = 'ticket'
+        ticket.id = i;
 
         //title
         const title = document.createElement('h1');
@@ -71,7 +73,6 @@ function displayTickets(tickets)
 
         //priority
         const priority = document.createElement('p')
-        console.log(tickets[i].priority)
         switch(tickets[i].priority)
         {
             case 1:
@@ -95,7 +96,29 @@ function displayTickets(tickets)
         description.textContent = tickets[i].description
         ticket.appendChild(description)
 
+        const completedButton = document.createElement('button')
+        completedButton.textContent = 'done'
+        ticket.appendChild(completedButton)
+
+        //completedButton.addEventListener('click', () => {ticketDone(ticket.id)});
+
         //adds ticket div to holder div 
         ticketHolder.appendChild(ticket);
     }
 };
+
+async function ticketDone(ticket)
+{
+    const response = await fetch('../db/api.php',
+    {
+        method: 'POST',
+        headers: {'Content-Type' : 'application/json'},
+        body : JSON.stringify({action: 'getTickets'})
+    });
+    smth = await response.json();
+
+    refreshTickets();
+    
+
+    //console.log(ticketDiv)
+}

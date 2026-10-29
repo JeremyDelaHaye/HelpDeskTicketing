@@ -1,4 +1,4 @@
-const GLASS_PANELS = ['#loginOrCreate', '#createAccount', '#login','#createTicket'];
+const GLASS_PANELS = ['#loginOrCreate', '#createAccount', '#login','#createTicket','#ticket'];
 function applyUI(root = document) 
 {
     // Page-wide: type scale and automatic dark mode
